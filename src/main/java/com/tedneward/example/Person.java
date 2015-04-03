@@ -23,6 +23,13 @@ public class Person {
   public int getAge() {
     return age;
   }
+
+  public voic setAge(int age) {
+    if(age < 0) {
+      throw new IllegalArgumentException();
+    }
+
+  }
   
   public String getName() {
     return name;
@@ -35,6 +42,7 @@ public class Person {
   public String getSSN() {
     return ssn;
   }
+
   public void setSSN(String value) {
     String old = ssn;
     ssn = value;
