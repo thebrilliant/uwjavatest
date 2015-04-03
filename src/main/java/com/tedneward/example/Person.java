@@ -3,7 +3,7 @@ package com.tedneward.example;
 import java.beans.*;
 import java.util.*;
 
-public class Person {
+public class Person implements Comparable {
   private int age;
   private String name;
   private double salary;
@@ -24,7 +24,7 @@ public class Person {
     return age;
   }
 
-  public voic setAge(int age) {
+  public void setAge(int age) {
     if(age < 0) {
       throw new IllegalArgumentException();
     }
@@ -66,6 +66,15 @@ public class Person {
     return 0;
   }
 
+  public static ArrayList<Person> getNewardFamily() {
+    ArrayList<Person> temp = new ArrayList<Person>();
+    temp.add(new Person("Ted", 41, 250000));
+    temp.add(new Person("Charlotte", 43, 150000));
+    temp.add(new Person("Michael", 22, 10000));
+    temp.add(new Person("Matthew", 15, 0));
+    return temp;
+  }
+
   public boolean getPropertyChangeFired() {
     return propertyChangeFired;
   }
@@ -83,7 +92,7 @@ public class Person {
   }
   
   public boolean equals(Person other) {
-    return (this.name.equals(p.name) && this.age == p.age);
+    return (this.name.equals(other.name) && this.age == other.age);
   }
 
   public String tostring() {
@@ -99,5 +108,20 @@ public class Person {
   }
   public void removePropertyChangeListener(PropertyChangeListener listener) {
       this.pcs.removePropertyChangeListener(listener);
+  }
+
+  public int compareTo(Person other) {
+    if (other.salary > this.salary) {
+      return -1;
+    } else if (other.salary == this.salary) {
+      return 0;
+    } else {
+      return 1;
+    }
+  }
+
+  public class AgeComparator {
+    Person p1;
+    Person p2;
   }
 }
