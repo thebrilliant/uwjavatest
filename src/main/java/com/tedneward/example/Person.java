@@ -61,6 +61,11 @@ public class Person {
     this.pcs.firePropertyChange("ssn", old, value);
     propertyChangeFired = true;
   }
+
+  public int count() {
+    return 0;
+  }
+
   public boolean getPropertyChangeFired() {
     return propertyChangeFired;
   }
