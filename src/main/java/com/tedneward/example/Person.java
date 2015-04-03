@@ -28,15 +28,26 @@ public class Person {
     if(age < 0) {
       throw new IllegalArgumentException();
     }
-
+    this.age = age;
   }
   
   public String getName() {
     return name;
   }
+
+  public void setName(String name) {
+    if (name == null) {
+      throw new IllegalArgumentException();
+    }
+    this.name = name;
+  }
   
   public double getSalary() {
     return salary;
+  }
+
+  public void setSalary(double salary) {
+    this.salary = salary;
   }
   
   public String getSSN() {
