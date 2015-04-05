@@ -6,20 +6,20 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestPerson {
-  @Test
-  public void exerciseTheBasics() {
-    Person p = new Person();
-    p.setAge(20);
-    p.setName("Fird Birfle");
-    p.setSalary(195750.22);
-    
-    assertEquals(20, p.getAge());
-    assertEquals("Fird Birfle", p.getName());
-    
-    assertEquals(215325.242, p.calculateBonus(), 0.01);
-    assertEquals("The Honorable Fird Birfle", p.becomeJudge());
-    assertEquals(30, p.timeWarp());
-  }
+   @Test
+   public void exerciseTheBasics() {
+      Person p = new Person();
+      p.setAge(20);
+      p.setName("Fird Birfle");
+      p.setSalary(195750.22);
+       
+      assertEquals(20, p.getAge());
+      assertEquals("Fird Birfle", p.getName());
+       
+      assertEquals(215325.242, p.calculateBonus(), 0.01);
+      assertEquals("The Honorable Fird Birfle", p.becomeJudge());
+      assertEquals(30, p.timeWarp());
+   }
   
   @Test(expected=IllegalArgumentException.class)
   public void setAgeToBeNegative() {
@@ -94,11 +94,14 @@ public class TestPerson {
     // ============ YOUR CHANGES BEGIN HERE
     // Call addPropertyChangeListener with a PropertyChangedListener
     // that has the following code in it:
-    /*
-    assertEquals("ssn", pce.getPropertyName());
-    assertEquals("", pce.getOldValue());
-    assertEquals("012-34-5678", pce.getNewValue());
-    */
+    
+    ted.addPropertyChangeListener(new PropertyChangeListener() {
+	   public void propertyChange(PropertyChangeEvent pce) {
+         assertEquals("ssn", pce.getPropertyName());
+         assertEquals("", pce.getOldValue());
+         assertEquals("012-34-5678", pce.getNewValue());
+      }
+    });
 
     // ============ YOUR CHANGES END HERE
     

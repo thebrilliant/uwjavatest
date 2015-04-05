@@ -102,7 +102,7 @@ public class Person implements Comparable<Person> {
   }
 
   public String tostring() {
-    return name;
+    return "[Person name:" + name + " age:" + age + " salary:" + salary + "]";
   }
 
   // PropertyChangeListener support; you shouldn't need to change any of
