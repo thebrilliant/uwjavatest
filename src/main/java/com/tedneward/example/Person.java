@@ -9,6 +9,7 @@ public class Person implements Comparable<Person> {
   private double salary;
   private String ssn;
   private boolean propertyChangeFired = false;
+  public static int count;
   
   public Person() {
     this("", 0, 0.0d);
@@ -18,6 +19,8 @@ public class Person implements Comparable<Person> {
     name = n;
     age = a;
     salary = s;
+    ssn = "";
+    count++;
   }
 
   public int getAge() {
@@ -68,10 +71,6 @@ public class Person implements Comparable<Person> {
     propertyChangeFired = true;
   }
 
-  public int count() {
-    return 0;
-  }
-
   public static ArrayList<Person> getNewardFamily() {
     ArrayList<Person> temp = new ArrayList<Person>();
     temp.add(new Person("Ted", 41, 250000));
@@ -96,12 +95,19 @@ public class Person implements Comparable<Person> {
   public int timeWarp() {
     return age + 10;
   }
-  
-  public boolean equals(Person other) {
-    return (this.name.equals(other.name) && this.age == other.age);
+
+  @Override
+  public boolean equals(Object other) {
+    boolean equals = false;
+    if (other instanceof Person){
+      Person p = (Person) other;
+      equals = (this.name.equals(p.name) && this.age == p.age);
+    }
+    return equals;
   }
 
-  public String tostring() {
+  @Override
+  public String toString() {
     return "[Person name:" + name + " age:" + age + " salary:" + salary + "]";
   }
 
@@ -116,6 +122,7 @@ public class Person implements Comparable<Person> {
       this.pcs.removePropertyChangeListener(listener);
   }
 
+  @Override
   public int compareTo(Person other) {
     if (other.salary > this.salary) {
       return -1;
