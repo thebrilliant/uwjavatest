@@ -9,7 +9,7 @@ public class Person implements Comparable<Person> {
   private double salary;
   private String ssn;
   private boolean propertyChangeFired = false;
-  public static int count;
+  private static int count;
   
   public Person() {
     this("", 0, 0.0d);
@@ -21,6 +21,10 @@ public class Person implements Comparable<Person> {
     salary = s;
     ssn = "";
     count++;
+  }
+
+  public static int count() {
+    return count;
   }
 
   public int getAge() {
@@ -124,12 +128,13 @@ public class Person implements Comparable<Person> {
 
   @Override
   public int compareTo(Person other) {
-    if (other.salary > this.salary) {
+    /*if (other.salary > this.salary) {
       return -1;
     } else if (other.salary == this.salary) {
       return 0;
     } else {
       return 1;
-    }
+    }*/
+    return (int) -(this.salary - other.salary);
   }
 }
